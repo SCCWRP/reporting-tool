@@ -1,0 +1,24 @@
+.rowCenter {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 20px !important;
+}
+
+.rowLeft {
+   display: flex;
+   align-items: left;
+   justify-content: left;
+   gap: 20px;
+}
+
+.rowRight {
+   display: flex;
+   align-items: right;
+   justify-content: right;
+   gap: 20px;
+}
+
+.container {
+   margin: 2% 5% 2%;
+}
