@@ -3,10 +3,10 @@ import { Section } from "./Section"
 import { SiteSeach } from "./SiteSearch"
 import grid from "../Grid.module.css"
 import styles from "./Table.module.css"
+import { DTStatusIndicator } from "./DTStatusIndicator"
 
 export function Table(props) {
    const title = props.title
-   const fields = props.fields
 
    return (
       <div>
@@ -22,26 +22,54 @@ export function Table(props) {
                         <th>Chem</th>
                         <th>PHAB</th>
                         <th>BMI Tax</th>
-                        <th>Algae</th>
                         <th>GIS</th>
                         <th>CSCI</th>
                         <th>ASCI</th>
                         <th>PHAB Metrics</th>
                         <th>IPI</th>
-                        <th>CausAss</th>
                      </tr>
                      <tr>
                         <td>10/10/10</td>
-                        <td><span>◉</span></td>
-                        <td><span>◉</span></td>
-                        <td><span>◉</span></td>
-                        <td><span>◉</span></td>
-                        <td><span>◉</span></td>
-                        <td><span>◉</span></td>
-                        <td><span>◉</span></td>
-                        <td><span>◉</span></td>
-                        <td><span>◉</span></td>
-                        <td><span>◉</span></td>
+                        <td>
+                           <DTStatusIndicator 
+                              dt="chem"
+                           />
+                        </td>
+                        <td>
+                           <DTStatusIndicator 
+                              dt="phab"
+                           />
+                        </td>
+                        <td>
+                           <DTStatusIndicator 
+                              dt="tax"
+                           />
+                        </td>
+                        <td>
+                           <DTStatusIndicator 
+                              dt="gismetrics"
+                           />
+                        </td>
+                        <td>
+                           <DTStatusIndicator 
+                              dt="csci"
+                           />
+                        </td>
+                        <td>
+                           <DTStatusIndicator 
+                              dt="asci"
+                           />
+                        </td>
+                        <td>
+                           <DTStatusIndicator 
+                              dt="phabmetrics"
+                           />
+                        </td>
+                        <td>
+                           <DTStatusIndicator 
+                              dt="ipi"
+                           />
+                        </td>
                      </tr>
                   </table>
                </div>
