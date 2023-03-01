@@ -19,7 +19,7 @@ td, th {
 } 
 
 td {
-   color: green;
+   color: gray;
    font-size: 30px;
 }
 td:nth-child(1){

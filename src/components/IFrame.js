@@ -7,13 +7,16 @@ export function IFrame(props) {
    const title = props.title
    const src = props.src
 
-   return(
+   return (
       <div>
          <Section
             title={title}
          >
+            <div className={grid.rowRight}>
+            </div>
+            <br></br>
             <div className={grid.rowCenter}>
-               <iframe  className={styles.iframe} src={src}></iframe>
+               <iframe className={styles.iframe} src={src}></iframe>
             </div>
          </Section>
       </div>
