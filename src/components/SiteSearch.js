@@ -2,42 +2,64 @@ import React from "react";
 import styles from "./SiteSeach.module.css";
 import grid from "../Grid.module.css"
 import { useState } from "react";
+import { Table } from "./Table";
+import { Section } from "./Section";
 
-export function SiteSeach(props) {
+export function SiteSearch(props) {
+
+   const title = props.title
 
    const [inputValue, setInputValue] = useState('')
+   const [thisStation, setThisStation] = useState('')
 
-   // function search(searchTerm) {
-   //    fetch('/stations', {
+   // function handleChange(e) {
+   //    setInputValue(e.target.value)
+   // }
+
+   // function handleSubmit() {
+
+   //    const inputObj = {search: inputValue}
+   //    const searchJSON = JSON.stringify(inputObj)
+
+   //    fetch('https://nexus.sccwrp.org/smc-audit-demo/stations', {
    //       method: 'POST',
-   //       body: formData
+   //       headers: {
+   //          "Content-Type": "application/json",
+   //       },
+   //       body: searchJSON
+   //    })
+   //    .then(response => response.json())
+   //    .then(stations => {
+   //       const myStation = stations['stations'][0]
+   //       setThisStation(myStation)
+   //       })
+   //    .then(console.log(thisStation))
+   //    .catch(error => {
+   //       console.error(error)
    //     })
    // }
 
-   function handleChange(e) {
-      setInputValue(e.target.value)
-   }
-
-   function handleSubmit() {
-      console.log(inputValue)
-
-      // fetch('/stations', {
-      //    method: 'POST',
-      //    body: inputValue
-      // })
-      // .then(response => response.json())
-      // .then(data => console.log(data))
-      // .catch(error => {
-      //    console.error(error)
-      //  })
+   function clearData() {
+      fetch('https://nexus.sccwrp.org/smc-audit-demo/stations', {
+         method: 'POST'
+      })
    }
 
    return (
-      <div className={styles.SiteSearch}>
-         <div className={grid.rowCenter}>
-            <input type="search" placeholder="Search for a station..." onChange={handleChange} />
-            <button className={styles.button} onClick={handleSubmit}>Search</button>
-         </div>
+      <div>
+         <Section title={title}>
+            <div className={grid.rowCenter}>
+               <button className={styles.button} disabled>Clear</button>
+            </div>
+            <br></br>
+            {/* <div className={styles.SiteSearch}>
+               <div className={grid.rowCenter}>
+                  <input type="search" placeholder="Search for a station..." onChange={handleChange} />
+                  <button className={styles.button} onClick={handleSubmit}>Search</button>
+               </div>
+            </div> */}
+            <Table />
+         </Section>
       </div>
    )
 }

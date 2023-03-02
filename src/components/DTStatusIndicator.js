@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./DTStatusIndicator.module.css"
 
 export function DTStatusIndicator(props) {
@@ -8,13 +8,20 @@ export function DTStatusIndicator(props) {
 
    const dataType = props.dt
 
+   useEffect(() => {
+      getData()
+      const interval = setInterval(() => {
+         getData()
+      }, 1000)
+   }, [])
 
-   fetch(`https://nexus.sccwrp.org/smc-audit-demo/${dataType}`, {
+   function getData() {
+      fetch(`https://nexus.sccwrp.org/smc-audit-demo/${dataType}`, {
       method: 'GET'
    })
       .then(response => response.json())
       .then(data => {
-         console.log(`${dataType}:`, data)
+         console.log(`***GET DATA*** ${dataType}:`, data)
          let dataStatus = data["res"]
          if (dataStatus === true) {
             setColor('green')
@@ -27,6 +34,8 @@ export function DTStatusIndicator(props) {
       .catch(error => {
          console.error(error)
       })
+   }
+   
 
    
 

@@ -12,8 +12,6 @@ export function IFrame(props) {
          <Section
             title={title}
          >
-            <div className={grid.rowRight}>
-            </div>
             <br></br>
             <div className={grid.rowCenter}>
                <iframe className={styles.iframe} src={src}></iframe>
