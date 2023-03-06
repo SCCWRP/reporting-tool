@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flowchart } from './components/Flowchart';
-import { Table } from "./components/Table"
+import { SiteSearch } from "./components/SiteSearch"
+import { Table } from './components/Table';
 import { IFrame } from './components/IFrame';
 import { CausAss } from './components/CausAss';
 import './App.css';
@@ -32,13 +33,13 @@ function App() {
                   imgAlt="Management application data flowchart"
                />
             </div>
-            <Table title="Station Processing Status" />
+            <SiteSearch title="Station Data Status"/>
             <IFrame
                title="SMC Checker"
-               src="https://smcchecker.sccwrp.org/smc/"
+               src="https://nexus.sccwrp.org/demochecker/"
             />
             <CausAss
-               src="https://rsca.sccwrp.org/sgrrmp"
+               src="https://rsca.sccwrp.org/rscademo"
                refresh="0"
             />
          </div>
