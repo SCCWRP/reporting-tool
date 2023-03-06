@@ -7,6 +7,7 @@ export function DTStatusIndicator(props) {
    const [color, setColor] = useState("gray")
 
    const dataType = props.dt
+   const station = props.station
 
    useEffect(() => {
       getData()
@@ -15,33 +16,43 @@ export function DTStatusIndicator(props) {
       }, 1000)
    }, [])
 
+   const dataObj = {
+      station: station
+   }
+
+   const dataJSON = JSON.stringify(dataObj)
+
    function getData() {
       fetch(`https://nexus.sccwrp.org/smc-audit-demo/${dataType}`, {
-      method: 'GET'
-   })
-      .then(response => response.json())
-      .then(data => {
-         console.log(`***GET DATA*** ${dataType}:`, data)
-         let dataStatus = data["res"]
-         if (dataStatus === true) {
-            setColor('green')
-         } else if (dataStatus === false) {
-            setColor('gray')
-         } else {
-            setColor('red')
-         }
+         method: 'POST',
+         headers: {
+            "Content-Type": "application/json",
+         },
+         body: dataJSON
       })
-      .catch(error => {
-         console.error(error)
-      })
+         .then(response => response.json())
+         .then(data => {
+            console.log(`***GET DATA*** ${dataType}:`, data)
+            let dataStatus = data["res"]
+            if (dataStatus === true) {
+               setColor('green')
+            } else if (dataStatus === false) {
+               setColor('gray')
+            } else {
+               setColor('red')
+            }
+         })
+         .catch(error => {
+            console.error(error)
+         })
    }
-   
 
-   
+
+
 
    return (
       <div>
-         <span className={styles.indicator} style={{color: color}}>◉</span>
+         <span className={styles.indicator} style={{ color: color }}>◉</span>
       </div>
    )
 }

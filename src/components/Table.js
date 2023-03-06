@@ -7,6 +7,7 @@ import { DTStatusIndicator } from "./DTStatusIndicator"
 
 export function Table(props) {
    const title = props.title
+   const station = props.station
 
    return (
       <div>
@@ -25,44 +26,52 @@ export function Table(props) {
                      <th>IPI</th>
                   </tr>
                   <tr>
-                     <td>SGUT502</td>
+                     <td>{station}</td>
                      <td>
                         <DTStatusIndicator
+                           station={station}
                            dt="chem"
                         />
                      </td>
                      <td>
                         <DTStatusIndicator
+                           station={station}
                            dt="phab"
                         />
                      </td>
                      <td>
                         <DTStatusIndicator
+                           station={station}
                            dt="tax"
                         />
                      </td>
                      <td>
                         <DTStatusIndicator
+                           station={station}
                            dt="gismetrics"
                         />
                      </td>
                      <td>
                         <DTStatusIndicator
+                           station={station}
                            dt="csci"
                         />
                      </td>
                      <td>
                         <DTStatusIndicator
+                           station={station}
                            dt="asci"
                         />
                      </td>
                      <td>
                         <DTStatusIndicator
+                           station={station}
                            dt="phabmetrics"
                         />
                      </td>
                      <td>
                         <DTStatusIndicator
+                           station={station}
                            dt="ipi"
                         />
                      </td>
