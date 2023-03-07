@@ -5,9 +5,15 @@ import styles from "./DTStatusIndicator.module.css"
 export function DTStatusIndicator(props) {
 
    const [color, setColor] = useState("gray")
+   const [statusObj, setStatus] = useState({
+      status: '',
+      message: '',
+      error: ''
+   })
 
    const dataType = props.dt
    const station = props.station
+
 
    useEffect(() => {
       getData()
@@ -39,7 +45,26 @@ export function DTStatusIndicator(props) {
             } else if (dataStatus === false) {
                setColor('gray')
             } else {
-               setColor('red')
+               let status = dataStatus[0]['current_status']
+               let message = dataStatus[0]['current_message']
+               let error = dataStatus[0]['error_message']
+               switch (status) {
+                  case 'completed':
+                     setColor('green')
+                     break;
+                  case 'processing':
+                     setColor('yellow')
+                     break;
+                  case 'failed':
+                     setColor('red')
+                     break;
+               }
+               setStatus({
+                  status: status,
+                  message: message,
+                  error: error
+               })
+
             }
          })
          .catch(error => {
@@ -47,12 +72,22 @@ export function DTStatusIndicator(props) {
          })
    }
 
+   function handleClick() {
+      if (statusObj.status !== '') {
+         if (statusObj.error !== null) {
+            alert(statusObj.error)
+         } else {
+            alert(statusObj.message)
+         }
+      }
+   }
+
 
 
 
    return (
       <div>
-         <span className={styles.indicator} style={{ color: color }}>◉</span>
+         <span className={styles.indicator} style={{ color: color }} onClick={handleClick}>◉</span>
       </div>
    )
 }
