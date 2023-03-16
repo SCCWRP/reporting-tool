@@ -6,36 +6,51 @@ import { IFrame } from './components/IFrame';
 import { CausAss } from './components/CausAss';
 import './App.css';
 import grid from "./Grid.module.css"
-import img1 from "./assets/bitmap.png"
-import img2 from "./assets/Picture2.png"
-import img3 from "./assets/Picture3.png"
+import img2 from "./assets/esri-dev-2023-talk-analysis-flowchart2.png"
+import img1 from "./assets/esri-dev-2023-talk-collection-flowchart1.png"
+import img3 from "./assets/esri-dev-2023-talk-management-flowchart3.png"
+import { Section } from "./components/Section.js"
+//import styles from './components/Section.module.css"
 
 function App() {
    return (
       <div className="App">
          <div className={grid.container}>
-            <u><b><h1>Environmental Data Reporting</h1></b></u><br></br>
+            <b><h1>Automating Environmental Data Workflows</h1></b><br></br>
             <div className={grid.rowCenter}>
                <Flowchart
                   title="Collection"
                   image={img1}
                   imgAlt="Checker/Approval app data flow"
-                  buttonLink="https://sccwrp.org"
+                  buttonLink="https://github.com/SCCWRP/checker2.0"
+                  button2Link="https://nexus.sccwrp.org/smcchecker/"
                />
                <Flowchart
                   title="Analysis"
                   image={img2}
                   imgAlt="Analysis/processing data flowchart"
+                  buttonLink="https://csuchico.app.box.com/v/CSCI-Data-Tools"
+                  button2Link=""
                />
                <Flowchart
                   title="Presentation"
                   image={img3}
                   imgAlt="Management application data flowchart"
+                  buttonLink="https://github.com/SCCWRP/SGRRMP"
+                  button2Link="https://rsca.sccwrp.org/sgrrmp"
                />
             </div>
+            <u><h3>Instructions</h3></u> 
+            <h4>1. Clear the test data by clicking the "Clear data" button under the Demo Checker</h4>
+            <h4>2. Download the sample data</h4>
+            <h4>3. Submit the raw data to the checker</h4>
+            <h4>4. Submit the shapefiles to the checker</h4>
+            <h4>5. Search for the demo station under Station Data Status</h4>
+            <h4>6. Wait while data processes and indicators begin to reflect new data</h4>
+            <br></br>
             <SiteSearch title="Station Data Status"/>
             <IFrame
-               title="SMC Checker"
+               title="Demo Checker"
                src="https://nexus.sccwrp.org/demochecker/"
             />
             <CausAss
