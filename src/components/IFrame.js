@@ -60,6 +60,9 @@ export function IFrame(props) {
          <Section
             title={title}
          >
+            <div className={grid.rowRight}>
+            </div>
+            <br></br>
             <div className={grid.rowCenter}>
                <button className={grid.button} onClick={handleDownload}>Download sample data</button>
                <button className={grid.button} onClick={handleClear}>Clear data</button>
