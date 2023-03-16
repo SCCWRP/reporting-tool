@@ -22,3 +22,16 @@
 .container {
    margin: 2% 5% 2%;
 }
+
+.button {
+   appearance: none;
+   background: none;
+   color: white;
+   background-color: rgb(25,120,242);
+   box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+   border: solid 2px rgb(25,120,242);
+   padding: 10px;
+   width: 100%;
+   border-radius: 3px;
+   cursor: pointer;
+}

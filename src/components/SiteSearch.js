@@ -9,7 +9,7 @@ export function SiteSearch(props) {
 
    const title = props.title
 
-   const [inputValue, setInputValue] = useState('')
+   const [inputValue, setInputValue] = useState('SGUT502')
    const [thisStation, setThisStation] = useState('')
 
    function handleChange(e) {
@@ -39,23 +39,14 @@ export function SiteSearch(props) {
          })
    }
 
-   function clearData() {
-      fetch('https://nexus.sccwrp.org/smc-audit-demo/stations', {
-         method: 'POST'
-      })
-   }
-
    if (thisStation === '' || thisStation === undefined) {
       return (
          <div>
             <Section title={title}>
-               <div className={grid.rowCenter}>
-                  <button className={styles.button} disabled>Clear</button>
-               </div>
                <br></br>
                <div className={styles.SiteSearch}>
                   <div className={grid.rowCenter}>
-                     <input type="search" placeholder="Search for a station..." onChange={handleChange} />
+                     <input type="search" value={inputValue} onChange={handleChange} />
                      <button className={styles.button} onClick={handleSubmit}>Search</button>
                   </div>
                </div>
@@ -66,13 +57,10 @@ export function SiteSearch(props) {
       return (
          <div>
             <Section title={title}>
-               <div className={grid.rowCenter}>
-                  <button className={styles.button} disabled>Clear</button>
-               </div>
                <br></br>
                <div className={styles.SiteSearch}>
                   <div className={grid.rowCenter}>
-                     <input type="search" placeholder="Search for a station..." onChange={handleChange} />
+                     <input type="search" value={inputValue} onChange={handleChange} />
                      <button className={styles.button} onClick={handleSubmit}>Search</button>
                   </div>
                </div>
